@@ -7,6 +7,45 @@
 
 }
 
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;            
+    justify-content: center;            
+    align-items: center;
+    background-image: url(/assets/wallpaper.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 100%;
+
+}
+
+#link a{
+    color: red;
+}
+
+
+.root{
+    color: rgb(255, 255, 255);
+    float: left;
+}
+.text{
+    float: left;
+    color: rgb(17, 219, 17)
+}
+
+#Choose_Encrypt p , #Choose_Decrypt p , .x p{
+    float: left;
+}
+
+.num{
+    color: rgb(255, 255, 255);
+}
+
+.inx{
+    color: rgb(255, 251, 20);
+}
+
 #key{
     border: 2px solid #ccc;
     border-radius: 4px;
@@ -32,3 +71,94 @@
     background-color: #f8f8f8;
 }
 
+.console{
+    width: 40%;
+    height: 70%;
+    background-color: rgb(34, 34, 34);
+    border-radius: 20px;
+}
+
+.bar{
+    width: 100%;
+    height: 4%;
+    background-color: rgba(12, 12, 12, 0.541);
+    border-radius: 20px 20px 0 0;
+    
+}
+
+.title{
+    width: 90%;
+    height: 100%;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title p{
+    text-align: center;
+    color: rgba(240, 248, 255, 0.76);
+    margin-left: 10%;
+    font-size: 15px;
+}
+
+.operations{
+    width: 10%;
+    height: 100%;
+    float: left;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.operations button{
+    width: 2.5rem;
+    border: 0;
+    background-color: transparent;
+    color: aliceblue; 
+}
+
+.main{
+    width: 100%;
+    height: 96%;
+    overflow-y: auto;
+    float: left;
+    border-radius: 0 0 20px 20px;
+    padding: 1rem;
+  
+
+}
+
+#ctc{
+    display: block;
+    width: 1%;
+    color: rgb(17, 219, 17);
+    font-size: 6pt;
+
+ 
+}
+
+input {
+    background-color: transparent;
+    border: 0px solid;
+    height: 20px;
+    resize: horizontal;
+    width: 100%;
+    font-size: 15px;
+
+}
+textarea:focus, input:focus{
+    outline: none;
+    min-width: 200px;
+}
+*:focus {
+    outline: none;
+}
+
+.output {
+    color: rgb(255, 251, 20);
+    width: 100%;
+}
+
+.x {
+    display: flex;
+}

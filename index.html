@@ -1,15 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Columnar Transposition Cipher</title>
     <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
     <div class="container">
-        KEY:  <input id ='key' type="text" value="love"> <br> <br>
+        <!-- KEY:  <input id ='key' type="text" value="love"> <br> <br>
         Plaintext: <br> <input id='plaintext' type="text" value="mary prensesi bugun oldurecek"> <br> <button onclick="encrypt()">Encrypt</button> <br>
-        Ciphertext: <br> <input id='ciphertext' type="text" value="YESU UEM NIGORKAPS ULERREBNDC"> <br>  <button onclick="decrypt()">Decrypt</button> <br>
+        Ciphertext: <br> <input id='ciphertext' type="text" value="YESU UEM NIGORKAPS ULERREBNDC"> <br>  <button onclick="decrypt()">Decrypt</button> <br> -->
+        <div class="console">
+            <div class="bar">
+                <div class="title">
+                    <p>root@gzdgul</p>
+                </div>
+                <div class="operations">
+                    <button>-</button>
+                    <button>o</button>
+                    <button>x</button>
+                </div>
+            </div>
+            <div class="main">
+                <label class="x">
+                    <p class="root">root@gzdgul$&nbsp;</p>
+                    <input class="text" type="text" id="terminal_input" value="columnar_transposition_cipher" autofocus onkeypress="startup(event)">
+                </label>
+                <br><br>
+
+                <div id="main_menu" style="display: none;">
+                    <label id="ctc">
+                        ░█████╗░░█████╗░██╗░░░░░██╗░░░██╗███╗░░░███╗███╗░░██╗░█████╗░██████╗░  
+                        ██╔══██╗██╔══██╗██║░░░░░██║░░░██║████╗░████║████╗░██║██╔══██╗██╔══██╗  
+                        ██║░░╚═╝██║░░██║██║░░░░░██║░░░██║██╔████╔██║██╔██╗██║███████║██████╔╝  
+                        ██║░░██╗██║░░██║██║░░░░░██║░░░██║██║╚██╔╝██║██║╚████║██╔══██║██╔══██╗  
+                        ╚█████╔╝╚█████╔╝███████╗╚██████╔╝██║░╚═╝░██║██║░╚███║██║░░██║██║░░██║  
+                        ░╚════╝░░╚════╝░╚══════╝░╚═════╝░╚═╝░░░░░╚═╝╚═╝░░╚══╝╚═╝░░╚═╝╚═╝░░╚═╝  
+
+                        ████████╗██████╗░░█████╗░███╗░░██╗░██████╗██████╗░░█████╗░░██████╗██╗████████╗██╗░█████╗░███╗░░██╗
+                        ╚══██╔══╝██╔══██╗██╔══██╗████╗░██║██╔════╝██╔══██╗██╔══██╗██╔════╝██║╚══██╔══╝██║██╔══██╗████╗░██║
+                        ░░░██║░░░██████╔╝███████║██╔██╗██║╚█████╗░██████╔╝██║░░██║╚█████╗░██║░░░██║░░░██║██║░░██║██╔██╗██║
+                        ░░░██║░░░██╔══██╗██╔══██║██║╚████║░╚═══██╗██╔═══╝░██║░░██║░╚═══██╗██║░░░██║░░░██║██║░░██║██║╚████║
+                        ░░░██║░░░██║░░██║██║░░██║██║░╚███║██████╔╝██║░░░░░╚█████╔╝██████╔╝██║░░░██║░░░██║╚█████╔╝██║░╚███║
+                        ░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝╚═════╝░╚═╝░░░░░░╚════╝░╚═════╝░╚═╝░░░╚═╝░░░╚═╝░╚════╝░╚═╝░░╚══╝
+
+                        ░█████╗░██╗██████╗░██╗░░██╗███████╗██████╗░
+                        ██╔══██╗██║██╔══██╗██║░░██║██╔════╝██╔══██╗
+                        ██║░░╚═╝██║██████╔╝███████║█████╗░░██████╔╝
+                        ██║░░██╗██║██╔═══╝░██╔══██║██╔══╝░░██╔══██╗
+                        ╚█████╔╝██║██║░░░░░██║░░██║███████╗██║░░██║
+                        ░╚════╝░╚═╝╚═╝░░░░░╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝
+                    </label>
+                    <label id="link"> <a href="https://github.com/gzdgul">github.com/gzdgul</a> </label>
+
+                    <div class="menu">
+                        <br>
+                        <label id="Choose_Encrypt">
+                            <p class="num">[1]</p>
+                            <p class="inx">&nbsp- Encrypt</p>
+                        </label>
+                        <br>
+                        <label id="Choose_Decrypt">
+                            <p class="num">[2]</p>
+                            <p class="inx">&nbsp- Decrypt</p>
+                        </label>
+                        <br>
+                    </div>
+                    <br>
+                    <label class="x">
+                        <p class="root">root@gzdgul$&nbsp;</p>
+                        <input class="text" type="text" id="selector" placeholder="// Choose any options..." onkeypress="selector(event)">
+                    </label>
+                    <!-- CHOOSE 1 -->
+                    <div id="encrypt" style="display: none;">
+                        <div>
+                            <label class="x">
+                                <p class="root">root@gzdgul$&nbsp;</p>
+                                <input class="text" type="text" id="encrypt_key" placeholder="// KEY > Choose your encrypt key..." onkeypress="encrypt_key_submit(event)">
+                            </label> 
+                            <label class="output" id="encrypt_key_output"></label>   
+                        </div>
+
+                        <div style="display: none;" id="encrypt_plaintext_label">
+                            <label class="x">
+                                <p class="root">root@gzdgul$&nbsp;</p>
+                                <input class="text" type="text" id="encrypt_plaintext" placeholder="// PLAINTEXT > Write something..." onkeypress="plaintext_submit(event)">
+                            </label>
+                            <label class="output" id="plaintext_output"></label>
+                            <br>
+                            <label class="output" id="encrypt_result"></label>
+                        </div>
+                    </div>
+                    <!-- CHOOSE 2 -->
+                    <div id="decrypt" style="display: none;">
+                        // DE INPUT TEXT
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
     </div>
 </body>
 <script src="./index.js"></script>
+
 </html>

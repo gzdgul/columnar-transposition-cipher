@@ -1,11 +1,15 @@
-function encrypt() {
-    // HTML tarafından verilerin çekilmesi.
-    const key_element = document.getElementById('key')?.value;
-    const plaintext_element = document.getElementById('plaintext')?.value;
+document.addEventListener('keydown', (event) => {
+        
+    if (event.key === 'Escape') {
+        location.reload();
+    }
+});
 
-    const key = key_element.split(''); // dizi haline getirdik, ayırdık.
+function encrypt(key, plaintext) {
+
+    key = key.split(''); // dizi haline getirdik, ayırdık.
     const column_num = key.length; // kolon sayısını aldık.
-    const plaintext = plaintext_element.split(''); // dizi haline getirdik, ayırdık.
+    plaintext = plaintext.split(''); // dizi haline getirdik, ayırdık.
     const pt_lenght = plaintext.length; // uzunluğunu aldık.
 
     const row_num = Math.ceil(pt_lenght / column_num); // sıra sayısını aldık.
@@ -58,6 +62,8 @@ function encrypt() {
     ciphertext_result = ciphertext_result.join('').toLocaleUpperCase();
 
     console.log(ciphertext_result);
+
+    return ciphertext_result;
 }
 
 function decrypt() {
@@ -113,4 +119,85 @@ function decrypt() {
         plaintext.push(x.join(''));
     });
     console.log(plaintext.join(''));
+}
+
+function startup(event) {
+
+    if (event.key !== "Enter") {
+        return;
+    }
+
+    let girdi = document.getElementById("terminal_input");
+    girdi.setAttribute("disabled", true);
+
+    if(girdi.value == 'columnar_transposition_cipher') {
+        let menu = document.getElementById("main_menu");
+        menu.style.display = "block";
+        let nextInput = document.getElementById('selector');
+        nextInput.focus();
+    }
+
+}
+
+function selector(event) {
+    
+    if (event.key !== "Enter") {
+        return;
+    }
+
+    let selector_input = document.getElementById("selector");
+    selector_input.setAttribute('disabled', true);
+
+    switch(selector_input.value) {
+        case '1': 
+            let encrypt_div = document.getElementById("encrypt");
+            encrypt_div.style.display = "block";
+            let nextInput = document.getElementById('encrypt_key');
+            nextInput.focus();
+            break;
+        
+        case '2':
+
+            break;
+    }
+}
+
+function encrypt_key_submit(event) {
+
+    if (event.key !== "Enter") {
+        return;
+    }
+
+    let encrypt_key = document.getElementById("encrypt_key");
+    encrypt_key.setAttribute("disabled", true);
+
+    let output = document.getElementById("encrypt_key_output");
+    output.innerHTML = 'Encrypt KEY : ' + encrypt_key.value;
+
+    let plaintext = document.getElementById("encrypt_plaintext_label");
+    plaintext.style.display = "block";
+
+    let nextInput = document.getElementById('encrypt_plaintext');
+    nextInput.focus();
+
+}
+
+function plaintext_submit(event) {
+
+    if (event.key !== "Enter") {
+        return;
+    }
+
+    let encrypt_key = document.getElementById("encrypt_key");
+    let plaintext = document.getElementById("encrypt_plaintext");
+    plaintext.setAttribute('disabled', true);
+
+    let output = document.getElementById("plaintext_output");
+    output.innerHTML = 'PLAINTEXT : ' + plaintext.value;
+
+    let encrypt_result = encrypt(encrypt_key.value, plaintext.value);
+
+    let result = document.getElementById("encrypt_result");
+    result.innerHTML = 'RESULT : ' + encrypt_result + ' (if you want clear press "esc")';
+
 }
