@@ -66,14 +66,11 @@ function encrypt(key, plaintext) {
     return ciphertext_result;
 }
 
-function decrypt() {
-    // HTML tarafından verilerin çekilmesi.
-    const key_element = document.getElementById('key')?.value;
-    const ciphertext_element = document.getElementById('ciphertext')?.value;
+function decrypt(key, ciphertext) {
 
-    const key = key_element.split(''); // dizi haline getirdik, ayırdık.
+    key = key.split(''); // dizi haline getirdik, ayırdık.
     const column_num = key.length; // kolon sayısını aldık.
-    const ciphertext = ciphertext_element.split(''); // dizi haline getirdik, ayırdık.
+    ciphertext = ciphertext.split(''); // dizi haline getirdik, ayırdık.
     const cp_lenght = ciphertext.length; // uzunluğunu aldık.
 
     const row_num = Math.ceil(cp_lenght / column_num); // sıra sayısını aldık.
@@ -118,7 +115,10 @@ function decrypt() {
     pt_sliced.forEach((x) => {
         plaintext.push(x.join(''));
     });
-    console.log(plaintext.join(''));
+    let plaintext_result = (plaintext.join(''));
+    console.log(plaintext_result);
+
+    return plaintext_result;
 }
 
 function startup(event) {
@@ -157,9 +157,22 @@ function selector(event) {
             break;
         
         case '2':
-
+            let decrypt_div = document.getElementById("decrypt");
+            decrypt_div.style.display = "block";
+            let nextInput2 = document.getElementById('decrypt_key');
+            nextInput2.focus();
             break;
+
+        default: 
+        let menu = document.getElementById("main_menu");
+        const error = document.createElement("div");
+        const error_txt = document.createElement("p");
+        error.appendChild(error_txt);
+        menu.appendChild(error);
+        error_txt.className = 'error';
+        error_txt.innerHTML = 'ERROR - The parameter you entered was not found. Please press "esc" to refresh!';
     }
+
 }
 
 function encrypt_key_submit(event) {
@@ -198,6 +211,46 @@ function plaintext_submit(event) {
     let encrypt_result = encrypt(encrypt_key.value, plaintext.value);
 
     let result = document.getElementById("encrypt_result");
-    result.innerHTML = 'RESULT : ' + encrypt_result + ' (if you want clear press "esc")';
+    result.innerHTML = 'CIPHERTEXT : ' + encrypt_result + ' (if you want to clear press "esc")';
+
+}
+
+function decrypt_key_submit(event) {
+
+    if (event.key !== "Enter") {
+        return;
+    }
+
+    let decrypt_key = document.getElementById("decrypt_key");
+    decrypt_key.setAttribute("disabled", true);
+
+    let output = document.getElementById("decrypt_key_output");
+    output.innerHTML = 'Decrypt KEY : ' + decrypt_key.value;
+
+    let ciphertext = document.getElementById("decrypt_ciphertext_label");
+    ciphertext.style.display = "block";
+
+    let nextInput = document.getElementById('decrypt_ciphertext');
+    nextInput.focus();
+
+}
+
+function ciphertext_submit(event) {
+
+    if (event.key !== "Enter") {
+        return;
+    }
+
+    let decrypt_key = document.getElementById("decrypt_key");
+    let ciphertext = document.getElementById("decrypt_ciphertext");
+    ciphertext.setAttribute('disabled', true);
+
+    let output = document.getElementById("ciphertext_output");
+    output.innerHTML = 'CIPHERTEXT : ' + ciphertext.value;
+
+    let decrypt_result = decrypt(decrypt_key.value, ciphertext.value);
+
+    let result = document.getElementById("decrypt_result");
+    result.innerHTML = 'PLAINTEXT : ' + decrypt_result + ' (if you want to clear press "esc")';
 
 }
