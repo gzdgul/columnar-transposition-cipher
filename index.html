@@ -22,7 +22,8 @@
                     <button>x</button>
                 </div>
             </div>
-            <div class="main">
+            <div class="mainc">
+                <div class="main">
                 <label class="x">
                     <p class="root">root@gzdgul$&nbsp;</p>
                     <input class="text" type="text" id="terminal_input" value="columnar_transposition_cipher" autofocus onkeypress="startup(event)">
@@ -69,14 +70,14 @@
                     </div>
                     <br>
                     <label class="x">
-                        <p class="root">root@gzdgul$&nbsp;</p>
+                        <p class="root">CTCipher&nbsp>&nbsp;</p>
                         <input class="text" type="text" id="selector" placeholder="// Choose any options..." autocomplete="off" onkeypress="selector(event)">
                     </label>
                     <!-- CHOOSE 1 -->
                     <div id="encrypt" style="display: none;">
                         <div>
                             <label class="x">
-                                <p class="root">root@gzdgul$&nbsp;</p>
+                                <p class="root">CTCipher&nbsp(Encrypt)&nbsp>&nbsp;</p>
                                 <input class="text" type="text" id="encrypt_key" placeholder="// KEY > Choose your encrypt key..." autocomplete="off" onkeypress="encrypt_key_submit(event)">
                             </label> 
                             <label class="output" id="encrypt_key_output"></label>   
@@ -84,11 +85,11 @@
 
                         <div style="display: none;" id="encrypt_plaintext_label">
                             <label class="x">
-                                <p class="root">root@gzdgul$&nbsp;</p>
+                                <p class="root">CTCipher&nbsp(Encrypt)&nbsp>&nbsp;</p>
                                 <input class="text" type="text" id="encrypt_plaintext" placeholder="// PLAINTEXT > Write something..." autocomplete="off" onkeypress="plaintext_submit(event)">
                             </label>
                             <label class="output" id="plaintext_output"></label>
-                            <br>
+                            <br><br>
                             <label class="output, color" id="encrypt_result"></label>
                         </div>
                     </div>
@@ -96,24 +97,31 @@
                     <div id="decrypt" style="display: none;">
                         <div>
                             <label class="x">
-                                <p class="root">root@gzdgul$&nbsp;</p>
+                                <p class="root">CTCipher&nbsp(Decrypt)&nbsp>&nbsp;</p>
                                 <input class="text" type="text" id="decrypt_key" placeholder="// KEY > Choose your decrypt key..." autocomplete="off" onkeypress="decrypt_key_submit(event)">
                             </label> 
                             <label class="output" id="decrypt_key_output"></label>   
                         </div>
                         <div style="display: none;" id="decrypt_ciphertext_label">
                             <label class="x">
-                                <p class="root">root@gzdgul$&nbsp;</p>
+                                <p class="root">CTCipher&nbsp(Decrypt)&nbsp>&nbsp;</p>
                                 <input class="text" type="text" id="decrypt_ciphertext" placeholder="// CIPHERTEXT > Write something..." autocomplete="off" onkeypress="ciphertext_submit(event)">
                             </label>
                             <label class="output" id="ciphertext_output"></label>
-                            <br>
+                            <br><br>
                             <label class="output, color" id="decrypt_result"></label>
                         </div>
                     </div>
+                    <div id="kok" style="display: none;">
+                        <br>
+                        <label class="x">
+                            <p class="root">root@gzdgul$&nbsp;</p>
+                            <input id="kok_input" class="text" type="text">
+                        </label>
+                    </div>
                 </div>
 
-            </div>
+            </div></div>
         </div>
     </div>
     </div>

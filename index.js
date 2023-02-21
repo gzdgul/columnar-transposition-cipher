@@ -1,5 +1,4 @@
 document.addEventListener('keydown', (event) => {
-        
     if (event.key === 'Escape') {
         location.reload();
     }
@@ -164,13 +163,14 @@ function selector(event) {
             break;
 
         default: 
-        let menu = document.getElementById("main_menu");
-        const error = document.createElement("div");
-        const error_txt = document.createElement("p");
-        error.appendChild(error_txt);
-        menu.appendChild(error);
-        error_txt.className = 'error';
-        error_txt.innerHTML = 'ERROR - The parameter you entered was not found. Please press "esc" to refresh!';
+            let menu = document.getElementById("main_menu");
+            const error = document.createElement("div");
+            const error_txt = document.createElement("p");
+            error.appendChild(error_txt);
+            menu.appendChild(error);
+            error_txt.className = 'error';
+            error_txt.innerHTML = 'ERROR - The parameter you entered was not found. Please press "esc" to refresh!';
+            break;
     }
 
 }
@@ -185,7 +185,7 @@ function encrypt_key_submit(event) {
     encrypt_key.setAttribute("disabled", true);
 
     let output = document.getElementById("encrypt_key_output");
-    output.innerHTML = 'Encrypt KEY : ' + encrypt_key.value;
+    output.innerHTML = 'ENCRYPT KEY : ' + encrypt_key.value;
 
     let plaintext = document.getElementById("encrypt_plaintext_label");
     plaintext.style.display = "block";
@@ -213,6 +213,11 @@ function plaintext_submit(event) {
     let result = document.getElementById("encrypt_result");
     result.innerHTML = 'CIPHERTEXT : ' + encrypt_result + ' (if you want to clear press "esc")';
 
+    let kok = document.getElementById('kok');
+    kok.style.display = "block";
+    let kok_input = document.getElementById('kok_input');
+    kok_input.focus();
+
 }
 
 function decrypt_key_submit(event) {
@@ -225,7 +230,7 @@ function decrypt_key_submit(event) {
     decrypt_key.setAttribute("disabled", true);
 
     let output = document.getElementById("decrypt_key_output");
-    output.innerHTML = 'Decrypt KEY : ' + decrypt_key.value;
+    output.innerHTML = 'DECRYPT KEY : ' + decrypt_key.value;
 
     let ciphertext = document.getElementById("decrypt_ciphertext_label");
     ciphertext.style.display = "block";
@@ -252,5 +257,10 @@ function ciphertext_submit(event) {
 
     let result = document.getElementById("decrypt_result");
     result.innerHTML = 'PLAINTEXT : ' + decrypt_result + ' (if you want to clear press "esc")';
+
+    let kok = document.getElementById('kok');
+    kok.style.display = "block";
+    let kok_input = document.getElementById('kok_input');
+    kok_input.focus();
 
 }
